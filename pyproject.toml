@@ -1,3 +1,6 @@
+[tool.flake8]
+exclude = [".direnv", "__pycache__"]
+
 [tool.poetry]
 name = "plur"
 version = "0.1.0"
@@ -7,6 +10,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
+flake8-pyproject = "^1.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
