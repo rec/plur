@@ -1,5 +1,5 @@
 from numbers import Number
-from typing import Sequence, Union
+from typing import Sequence, Tuple, Union
 import sys
 
 __all__ = 'DEFAULT_PLURALS', 'plur',
@@ -20,7 +20,7 @@ def plur(
 ) -> str:
     deferred = not plurals or isinstance(plurals[-1], str)
     if not deferred:
-        *plurals, to_count = *plurals
+        *plurals, to_count = plurals
 
     plurals = plurals or DEFAULT_PLURALS
     zero = zero or plurals[-1]

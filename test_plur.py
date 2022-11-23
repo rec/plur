@@ -9,8 +9,8 @@ def test_simple():
 
 def test_ending():
     assert plur('ox', '-en', 0) == '0 oxen'
-    assert plur('dog', 1) == '1 ox'
-    assert plur('dog', 2) == '2 oxen'
+    assert plur('ox', '-en', 1) == '1 ox'
+    assert plur('ox', '-en', 2) == '2 oxen'
 
 
 def test_defered():
@@ -19,6 +19,8 @@ def test_defered():
     assert dog(0) == '0 doggoes'
     assert dog(1) == '1 dog'
     assert dog(2) == '2 dogs'
+    assert dog(3) == '3 dogs'
+    assert dog(4) == '4 dogs'
 
 
 def test_exotic():
@@ -31,4 +33,5 @@ def test_exotic():
     assert dog(1) == 'dog: 1'
     assert dog(2) == 'dogs: 2'
     assert dog(3) == 'dogs: 3'
-    assert dog(4) == 'pups: 2'
+    assert dog(4) == 'pups: 4'
+    assert dog(5) == 'pups: 5'
