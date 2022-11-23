@@ -3,7 +3,7 @@ exclude = [".direnv", "__pycache__"]
 
 [tool.poetry]
 name = "plur"
-version = "0.2.0"
+version = "0.2.1"
 description = "🔢 Simple universal word pluralizer 🔢"
 authors = ["Tom Ritchford <tom@swirly.com>"]
 readme = "README.md"
