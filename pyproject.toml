@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "plur"
 version = "0.1.0"
-description = ""
+description = "Simple language universal pluralizer"
 authors = ["Tom Ritchford <tom@swirly.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.7"
 
 
 [tool.poetry.group.dev.dependencies]
