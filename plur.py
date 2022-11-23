@@ -2,33 +2,43 @@ from numbers import Number
 from typing import Sequence, Union
 import sys
 
-Arg = Union[Number, Sequence, str]
+__all__ = 'DEFAULT_PLURALS', 'plur',
+
+DEFAULT_PLURALS = ['-s']
+
+HasCount = Union[Number, Sequence]
+Plural = Union[HasCount, str]
+Plurals = Tuple[Plural, ...]
 
 
 def plur(
     word: str,
-    *args: Tuple[Arg, ...],
+    *plurals: Plurals,
     sep: str = ' ',
     num_first: bool = True,
     zero: str = '',
 ) -> str:
-    if not args or isinstance(args[-1], str):
-        return partial(plur, word, plural, *args, zero=zero)
+    deferred = not plurals or isinstance(plurals[-1], str)
+    if not deferred:
+        *plurals, to_count = *plurals
 
-    *plurals, to_count = *args
-    words = (zero or plurals[-1]), word, *(plurals or plur.DEFAULT_PLURALS)
+    plurals = plurals or DEFAULT_PLURALS
+    zero = zero or plurals[-1]
+    words = zero, word, *plurals
 
-    if isinstance(to_count, Number):
-        n = to_count
-    else:
-        n = len(to_count)
+    def plur(n: HasCount) -> str:
+        if not isinstance(n, Number):
+            n = len(n)
 
-    p = plurals[min(n, len(plurals) - 1)]
-    if p.startswith('-'):
-        p = word + p[1:]
+        i = min(n, len(words) - 1)
+        p = words[i]
+        if p.startswith('-'):
+            p = word + p[1:]
 
-    return sep.join((n, p) if num_first else (p, n))
+        return f'{n}{sep}{p}' if num_first else f'{p}{sep}{n}'
+
+    return plur if deferred else plur(to_count)
 
 
-plur.DEFAULT_PLURALS = DEFAULT_PLURALS = ['-s']
+[setattr(plur, k, globals()[k]) for k in __all__ + ('__all__',)]
 sys.modules['plur'] = plur
