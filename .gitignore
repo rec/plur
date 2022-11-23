@@ -1,0 +1,29 @@
+# Python files
+
+**/__pycache__
+*.pyc
+*.ipynb_checkpoints
+
+# Directories used by `pip`
+
+build/
+dist/
+*.egg-info/
+
+# Editor backup files
+*~
+
+# emacs TAGS tables
+TAGS
+
+# Pycharm files
+.idea/
+
+# `coverage` files
+.coverage
+htmlcov/
+
+# .env is for autoenv, .direnv for direnv
+.env
+.direnv/
+.envrc
