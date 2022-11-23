@@ -9,7 +9,11 @@ Sick of
 
 or even worse?
 
-Try `plur` for your tiny pluralization needs.
+Try `plur` for your tiny pluralization needs:
+
+    import plur
+
+    print(plur('branch', '-es'), branches), 'created)
 
 * No dictionary file!
 * No dependencies!
@@ -33,7 +37,7 @@ Examples:
     dogs = 'fido', 'rover'
     print(f'Today we have {plur("dog", dogs)}')
 
-For words you use a lot, you can quine or defer operation
+For words you use a lot, you can defer operation:
 
     dog = plur('dog')
     cat = plur('cat')
