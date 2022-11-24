@@ -18,6 +18,23 @@ def plur(
     num_first: bool = True,
     zero: str = '',
 ) -> str:
+    """ `plur()` pluralizes nouns.
+
+      word:
+          The root word for a single item
+
+      plurals:
+           Zero or more plurals.  If none are given, '-s' is used
+
+      sep:
+           The separator string between the number and the noun
+
+      num_first:
+           A boolean saying whether the number is written first or second
+
+      zero:
+           If there is a special case for zero items, it goes here
+    """
     deferred = not plurals or isinstance(plurals[-1], str)
     if not deferred:
         *plurals, to_count = plurals
