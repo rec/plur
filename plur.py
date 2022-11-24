@@ -40,5 +40,6 @@ def plur(
     return plur if deferred else plur(to_count)
 
 
-[setattr(plur, k, globals()[k]) for k in __all__ + ('__all__',)]
-sys.modules['plur'] = plur
+if __name__ != '__main__':
+    [setattr(plur, k, globals()[k]) for k in __all__ + ('__all__',)]
+    sys.modules[__name__] = plur
