@@ -9,7 +9,7 @@ authors = ["Tom Ritchford <tom@swirly.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.8"
 flake8-pyproject = "^1.2.0"
 
 
