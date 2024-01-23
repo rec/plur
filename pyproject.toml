@@ -20,6 +20,12 @@ mypy = "*"
 pytest = "*"
 ruff = "*"
 
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "single"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

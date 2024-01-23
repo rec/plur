@@ -1,19 +1,19 @@
 import typing as t
 
 __all__ = (
-    "DEFAULT_PLURALS",
-    "plur",
+    'DEFAULT_PLURALS',
+    'plur',
 )
 
-DEFAULT_PLURALS = ("-s",)
+DEFAULT_PLURALS = ('-s',)
 
 
 def plur(
     word: str,
     *plurals: str,
-    sep: str = " ",
+    sep: str = ' ',
     num_first: bool = True,
-    zero: str = "",
+    zero: str = '',
 ) -> t.Callable[[t.Union[int, t.Sequence]], str]:
     """`plur()` returns a pluralizer
 
@@ -40,9 +40,9 @@ def plur(
         n = len(count) if isinstance(count, t.Sequence) else count
         i = min(n, len(words) - 1)
         p = words[i]
-        if p.startswith("-"):
+        if p.startswith('-'):
             p = word + p[1:]
 
-        return f"{n}{sep}{p}" if num_first else f"{p}{sep}{n}"
+        return f'{n}{sep}{p}' if num_first else f'{p}{sep}{n}'
 
     return pluralizer
