@@ -18,13 +18,11 @@ classifiers = [
 
 [dependency-groups]
 dev = [
-    "black",
     "coverage",
-    "flake8",
-    "isort",
-    "mypy",
     "pytest",
+    "pyupgrade>=3.21.2",
     "ruff",
+    "ty>=0.0.14",
 ]
 
 [tool.uv]
@@ -52,9 +50,4 @@ source = ["plur"]
 [tool.coverage.report]
 fail_under = "93"
 skip_covered = true
-exclude_lines = [
-    "pragma: no cover",
-    "if False:",
-    "if __name__ == .__main__.:",
-    "raise NotImplementedError",
-]
+exclude_lines = ["pragma: no cover", "if False:", "if __name__ == .__main__.:", "raise NotImplementedError"]
